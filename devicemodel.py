@@ -7,8 +7,3 @@ class Device(db.Model):
 	umi	= db.Column(db.Integer)
 	lum     = db.Column(db.Integer)
 	date    = db.Column(db.DateTime)
-        def __init__(self,temp,umi,lum):
-                self.temp=temp
-                self.umi=umi
-                self.lum=lum
-                self.date=datetime.datetime.now()
