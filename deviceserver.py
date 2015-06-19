@@ -18,8 +18,8 @@ def index():
 def device_list():
 	infos = []
 	for i in Device.query.all():
-		print i.temp, i.umi, i.lum, i.date
-		infos.append({'id': i.id, 'Temperatura': i.temp, 'Umidade': i.umi, 'Luminosidade': i.lum, 'Data': i.date.isoformat()})
+		print i.name, i.med.temp, i.med.umi, i.med.lum, i.med.date
+		infos.append({'id': i.id, 'Nome': i.name, 'Temperatura': i.med.temp, 'Umidade': i.med.umi, 'Luminosidade': i.med.lum, 'Data': i.med.date.isoformat()})
 
 	return json.dumps(infos)
 
@@ -31,10 +31,11 @@ def device_new():
 
 	p = request.get_json()
 	a = Device()
-	a.temp = p['temp']
-	a.umi = p['umi']
-	a.lum = p['lum']
-	a.date = datetime.datetime.now()
+	a.name = p['name']
+	a.med.temp = p['temp']
+	a.med.umi = p['umi']
+	a.med.lum = p['lum']
+	a.med.date = datetime.datetime.now()
 	db.session.add(a)
 	db.session.commit()
 
@@ -43,3 +44,5 @@ def device_new():
 
 if __name__ == '__main__':
 	app.run(debug=True)
+
+
