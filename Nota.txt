@@ -1,0 +1,7 @@
+#Nota: 3.0
+#Comentario: Faltou o device
+             Convem proteger os dados que vem do usuario (try/except)
+			 Voces tentaram adicionar um relacionamento Device->Medidas após o
+			 meu comentario em aula, porém não fizeram no server corretamente e
+			 as alteraçoes simplesmente nao funcionaram. Entao mantenho a nota
+			 passada para não prejudica-los.
